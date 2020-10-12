@@ -1,8 +1,9 @@
 const TerserPlugin = require('terser-webpack-plugin');
-const WebpackMerge = require('webpack-merge');
+const { merge } = require('webpack-merge');
+
 const ConfigCodeBase = require('./webpack.common');
 
-module.exports = WebpackMerge(ConfigCodeBase, {
+module.exports = merge(ConfigCodeBase, {
   mode: 'production',
   plugins: [],
   performance: {

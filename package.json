@@ -10,7 +10,7 @@
     "start": "webpack-dev-server --hot --port 3000 --config webpack.dev.js"
   },
   "author": "Sulhadin Öney <sulhadin@gmail.com>",
-  "license": "MIT License",
+  "license": "MIT",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/sulhadin/react-pokemon.git"

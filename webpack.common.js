@@ -17,9 +17,6 @@ module.exports = {
     rules: [
       {
         test: /\.js$/,
-        exclude: [
-          /node_modules\/(?!antd).*/,
-        ],
         loader: 'babel-loader',
       },
       {
@@ -92,7 +89,6 @@ module.exports = {
       views: path.resolve(__dirname, './src/views'),
       lib: path.resolve(__dirname, './src/lib'),
       styles: path.resolve(__dirname, './src/assets/styles'),
-      layouts: path.resolve(__dirname, './src/layouts'),
       assets: path.resolve(__dirname, './src/assets'),
       enums: path.resolve(__dirname, './src/enums'),
     },

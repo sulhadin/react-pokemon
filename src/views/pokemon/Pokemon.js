@@ -1,32 +1,45 @@
-import React, { useState, useEffect, useMemo } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 
-import { navigate } from '../../lib';
+import { LoadingSpinner } from '../common';
 import { pokemonApi } from './apis';
+import { PokemonCard } from './components';
 
 const Pokemon = () => {
-  const [loading, setLoading] = useState([]);
-  const [data, setData] = useState([{}]);
+  const [loading, setLoading] = useState(true);
+  const [data, setData] = useState({
+    previous: null,
+    next: null,
+    results: [],
+  });
 
-  const viewPokemon = (id) => {
-    navigate.detail(id);
-  };
-
-  const fetch = (params = {}) => {
-    console.debug('params', params);
-
+  const fetchPokemon = useCallback((url) => {
     setLoading(true);
-    pokemonApi.getPokemon().then((response) => {
-      setData(response);
-    }).finally(() => setLoading(false));
-  };
+    pokemonApi.getPokemon(url)
+      .then((response) => {
+        console.debug(response.data);
+        setData(response.data);
+      }).finally(() => setLoading(false));
+  });
 
   useEffect(() => {
-    fetch({ });
+    fetchPokemon();
   }, []);
+
+  if (loading) {
+    return <LoadingSpinner />;
+  }
 
   return (
     <>
-      {data.results.map((pokemon) => <p>{pokemon.name}</p>)}
+        <button disabled={!data.previous} onClick={() => fetchPokemon(data.previous)}>prev</button>
+        <button disabled={!data.next} onClick={() => fetchPokemon(data.next)}>next</button>
+      <p>
+        {data.count}
+        {' '}
+        Pokemon
+      </p>
+      {data.results.map((pokemon) => <PokemonCard key={pokemon.name} name={pokemon.name} url={pokemon.url}> </PokemonCard>)}
+
     </>
   );
 };
