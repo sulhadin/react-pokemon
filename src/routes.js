@@ -13,7 +13,6 @@ const routes = [
     component: PokemonDetail,
     exact: true,
   }, {
-    path: RouteEnum.PAGE_404,
     component: PageNotFound,
   },
 ];
