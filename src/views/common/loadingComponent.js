@@ -5,7 +5,7 @@ import SpinnerImage from '../../assets/images/loading.gif';
 export const LoadingSpinner = React.memo(() => {
   return (
     <div className="loading-overlay-inline" style={{ textAlign: 'center' }}>
-      <img src={SpinnerImage} width={500} />
+      <img src={SpinnerImage} alt="loading" width={500} />
       <h2>Loading...</h2>
     </div>
   );
