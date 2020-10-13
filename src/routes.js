@@ -11,7 +11,6 @@ const routes = [
   {
     path: RouteEnum.POKEMON_DETAIL,
     component: PokemonDetail,
-    exact: true,
   }, {
     component: PageNotFound,
   },

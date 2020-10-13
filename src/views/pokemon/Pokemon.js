@@ -1,29 +1,53 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, {
+  useState, useEffect, useCallback,
+} from 'react';
 
 import { LoadingSpinner } from '../common';
 import { pokemonApi } from './apis';
-import { PokemonCard } from './components';
+import { PokemonHeader, PokemonView } from './components';
+import { filterByName } from './helpers';
+
+const limitParam = { offset: 0, limit: 1050 };
 
 const Pokemon = () => {
   const [loading, setLoading] = useState(true);
   const [data, setData] = useState({
-    previous: null,
-    next: null,
     results: [],
   });
 
-  const fetchPokemon = useCallback((url) => {
+  const [list, setList] = useState([]);
+  const [found, setFound] = useState(null);
+
+  const fetchPokemon = useCallback(() => {
     setLoading(true);
-    pokemonApi.getPokemon(url)
+
+    pokemonApi.getPokemon(limitParam)
       .then((response) => {
-        console.debug(response.data);
         setData(response.data);
-      }).finally(() => setLoading(false));
+      })
+      .finally(() => setLoading(false));
   });
+
+  const resetSearch = () => {
+    setList(data.results);
+    setFound(null);
+  };
+
+  const searchPokemon = (name) => {
+    const { results: pokemon } = data;
+    const foundPokemon = filterByName(pokemon, name);
+
+    setList(foundPokemon);
+    setFound(`${foundPokemon.length} pokemon found.`);
+  };
 
   useEffect(() => {
     fetchPokemon();
   }, []);
+
+  useEffect(() => {
+    setList(data.results);
+  }, [data]);
 
   if (loading) {
     return <LoadingSpinner />;
@@ -31,15 +55,13 @@ const Pokemon = () => {
 
   return (
     <>
-        <button disabled={!data.previous} onClick={() => fetchPokemon(data.previous)}>prev</button>
-        <button disabled={!data.next} onClick={() => fetchPokemon(data.next)}>next</button>
-      <p>
-        {data.count}
-        {' '}
-        Pokemon
-      </p>
-      {data.results.map((pokemon) => <PokemonCard key={pokemon.name} name={pokemon.name} url={pokemon.url}> </PokemonCard>)}
-
+      <PokemonHeader
+        resetSearch={resetSearch}
+        searchPokemon={searchPokemon}
+        count={data.count}
+        found={found}
+      />
+      <PokemonView list={list} />
     </>
   );
 };

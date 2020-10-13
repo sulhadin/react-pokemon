@@ -13,7 +13,6 @@ const PokemonDetail = ({ match }) => {
   });
 
   const { params: { name } } = match;
-  console.debug('name', name);
 
   const fetchPokemonProfile = (pokemonName = {}) => {
     pokemonApi.getPokemonProfile(pokemonName)
@@ -33,39 +32,41 @@ const PokemonDetail = ({ match }) => {
   console.debug('data', data);
 
   return (
-    <>
+    <div className="pokemon-profile">
       <button onClick={() => navigate.pokemon()}>x</button>
       <img align="center" src={`https://img.pokemondb.net/sprites/black-white/anim/normal/${name}.gif`} />
-      <p>
+      <h1>
         {data.name}
-      </p>
-      {' '}
-      <p>
-        ID:
-        {' '}
-        {data.id}
-      </p>
-      <p>
-        Type:
-        {' '}
-        <ul>
-          {data.types.map((type) => <li key={type.type.name}>{type.type.name}</li>)}
-        </ul>
+      </h1>
+      <div className="content">
 
-      </p>
-      <p>
-        Height:
-        {' '}
-        {data.height}
-      </p>
-      <p>
-        Abilities:
-        <ul>
-          {data.abilities.map((ability) => <li key={ability.ability.name}>{ability.ability.name}</li>)}
-        </ul>
+        <p>
+          ID:
+          {' '}
+          {data.id}
+        </p>
+        <p>
+          Type:
+          {' '}
+          <ul>
+            {data.types.map((type) => <li key={type.type.name}>{type.type.name}</li>)}
+          </ul>
 
-      </p>
-    </>
+        </p>
+        <p>
+          Height:
+          {' '}
+          {data.height}
+        </p>
+        <p>
+          Abilities:
+          <ul>
+            {data.abilities.map((ability) => <li key={ability.ability.name}>{ability.ability.name}</li>)}
+          </ul>
+
+        </p>
+      </div>
+    </div>
   );
 };
 

@@ -10,11 +10,11 @@ const pokemonApi = {
    * @param {{}} params
    * @return {Promise<* | void>}
    */
-  getPokemon: (url) => {
-    return client.get(url ?? urls.getPokemon);
+  getPokemon: (param) => {
+    return client.get(urls.getPokemon, param);
   },
-  getPokemonProfile: (name) => {
-    return client.get(`${urls.getPokemon}/${name}`);
+  getPokemonProfile: (name, param) => {
+    return client.get(`${urls.getPokemon}/${name}`, param);
   },
 };
 

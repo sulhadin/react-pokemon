@@ -9,14 +9,12 @@ export const PokemonCard = memo(({ name }) => {
   };
 
   return (
-    <>
-      <div>
+    <div className="pokemon-card" onClick={() => viewPokemon(name)}>
+      <div className="pokemon-image">
         <img align="center" src={`https://img.pokemondb.net/sprites/black-white/anim/normal/${name}.gif`} />
       </div>
-      <p>
-        <a href="#" onClick={() => viewPokemon(name)}>{name}</a>
-      </p>
-    </>
+      <h6>{name}</h6>
+    </div>
   );
 });
 
