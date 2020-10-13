@@ -25,7 +25,7 @@ ReactDom.render(
   <Router history={history}>
     <Switch>
       {
-        routes.map((routeProps) => <Route key={routeProps.path} {...routeProps} />)
+        routes.map((routeProps) => <Route key={routeProps.key} {...routeProps} />)
       }
     </Switch>
   </Router>,
