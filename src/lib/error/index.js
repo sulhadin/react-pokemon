@@ -1,6 +1,6 @@
 import { GlobalErrorHandler } from 'global-error-handler';
 
-import { AlertError, TypeError } from './ErrorTypes';
+import { AlertError } from './ErrorTypes';
 
 const globalErrorHandler = new GlobalErrorHandler();
 
@@ -14,14 +14,6 @@ const alertHandler = (error) => {
  * * */
 globalErrorHandler.register({
   key: AlertError.name,
-  handler: alertHandler,
-});
-
-/**
- *  Registers Type error error
- * * */
-globalErrorHandler.register({
-  key: TypeError.name,
   handler: alertHandler,
 });
 
