@@ -30,7 +30,7 @@ const PokemonHeader = ({
 
   return (
     <div className="pokemon-header">
-      <img src={PokemonLogo} width="300" />
+      <img alt="pokemon" src={PokemonLogo} width="300" />
       <h3>
         Generation 1
       </h3>
@@ -53,11 +53,12 @@ const PokemonHeader = ({
   );
 };
 
+PokemonHeader.defaultProps = {
+  found: null,
+};
+
 PokemonHeader.propTypes = {
-  found: PropTypes.oneOfType([
-    PropTypes.string.isRequired,
-    PropTypes.oneOf([null]).isRequired,
-  ]).isRequired,
+  found: PropTypes.any,
   count: PropTypes.oneOfType([
     PropTypes.number.isRequired,
     PropTypes.oneOf([undefined]).isRequired,

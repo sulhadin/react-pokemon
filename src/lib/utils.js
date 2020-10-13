@@ -3,6 +3,7 @@ import history from './history';
 
 export const navigate = {
   pokemon: () => { history.push(RouteEnum.POKEMON); },
+  notFound: () => { history.push(RouteEnum.PAGE_404); },
   detail: (pokemonName) => { history.push(`${RouteEnum.POKEMON}/${pokemonName}`); },
 };
 

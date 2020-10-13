@@ -5,19 +5,15 @@ import { PokemonCard } from './PokemonCard';
 
 const PokemonView = ({ list }) => {
   return (
-    <>
-
-      <div className="cards">
-        {list.map((pokemon) => (
-          <div className="card">
-            <PokemonCard
-              key={pokemon.name}
-              name={pokemon.name}
-            />
-          </div>
-        ))}
-      </div>
-    </>
+    <div className="cards">
+      {list.map((pokemon) => (
+        <div className="card" key={pokemon.name}>
+          <PokemonCard
+            name={pokemon.name}
+          />
+        </div>
+      ))}
+    </div>
   );
 };
 
