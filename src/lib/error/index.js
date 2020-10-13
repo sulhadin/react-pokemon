@@ -1,10 +1,11 @@
 import { GlobalErrorHandler } from 'global-error-handler';
 
-import { NotificationError, TypeError } from './ErrorTypes';
+import { AlertError, TypeError } from './ErrorTypes';
 
 const globalErrorHandler = new GlobalErrorHandler();
 
-const notificationHandler = (error) => {
+const alertHandler = (error) => {
+  // eslint-disable-next-line no-alert
   alert(error.message);
 };
 
@@ -12,8 +13,8 @@ const notificationHandler = (error) => {
  *  Registers notification warning
  * * */
 globalErrorHandler.register({
-  key: NotificationError.name,
-  handler: notificationHandler,
+  key: AlertError.name,
+  handler: alertHandler,
 });
 
 /**
@@ -21,7 +22,7 @@ globalErrorHandler.register({
  * * */
 globalErrorHandler.register({
   key: TypeError.name,
-  handler: notificationHandler,
+  handler: alertHandler,
 });
 
 /**

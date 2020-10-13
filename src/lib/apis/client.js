@@ -1,5 +1,5 @@
 import Axios from 'axios';
-import { NotificationError } from 'lib/error/ErrorTypes';
+import { AlertError } from 'lib/error/ErrorTypes';
 
 const get = (endpoint, params) => {
   return Axios.get(endpoint, { params })
@@ -13,7 +13,7 @@ const get = (endpoint, params) => {
          * status code that falls out of the range of 2xx
          */
         console.error(error.response.data);
-        throw new NotificationError(error.response.data.message);
+        throw new AlertError(error.response.data.message);
       } else if (error.request) {
       /*
          * The request was made but no response was received, `error.request`
