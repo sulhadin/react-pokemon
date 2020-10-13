@@ -10,7 +10,6 @@ import { routes } from './routes';
 // Global error handler
 import 'lib/error';
 
-import 'assets/styles/index.scss';
 import 'assets/styles/theme.less';
 
 console.info('Environment: ', process.env.NODE_ENV);
