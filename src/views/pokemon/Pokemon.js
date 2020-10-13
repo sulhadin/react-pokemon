@@ -41,9 +41,7 @@ const Pokemon = () => {
     setFound(`${foundPokemon.length} pokemon found.`);
   };
 
-  useEffect(() => {
-    fetchPokemon();
-  }, []);
+  useEffect(fetchPokemon, []);
 
   useEffect(() => {
     setList(data.results);

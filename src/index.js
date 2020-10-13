@@ -4,7 +4,7 @@ import ReactDom from 'react-dom';
 import { Router, Route, Switch } from 'react-router-dom';
 
 import { VariableEnum } from 'enums';
-import history from './lib/history';
+import { history } from './lib';
 import { routes } from './routes';
 
 // Global error handler

@@ -1,8 +1,8 @@
-import React, { useRef } from 'react';
+import React, { useRef, memo, useCallback } from 'react';
 import PropTypes from 'prop-types';
 import PokemonLogo from '../../../assets/images/pokemon.png';
 
-const PokemonHeader = ({
+const PokemonHeader = memo(({
   count,
   searchPokemon,
   found,
@@ -16,7 +16,7 @@ const PokemonHeader = ({
     resetSearch();
   };
 
-  const onSearchKeyDown = (e) => {
+  const onSearchKeyDown = useCallback((e) => {
     if (e.key === 'Enter') {
       const { value: name } = e.target;
 
@@ -26,7 +26,7 @@ const PokemonHeader = ({
       }
       searchPokemon(name);
     }
-  };
+  });
 
   return (
     <div className="pokemon-header">
@@ -51,7 +51,7 @@ const PokemonHeader = ({
       {found}
     </div>
   );
-};
+});
 
 PokemonHeader.defaultProps = {
   found: null,
