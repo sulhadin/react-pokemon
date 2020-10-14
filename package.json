@@ -7,8 +7,7 @@
     "test": "yarn run test",
     "deploy": "npm run build && yarn run git-commit && yarn run git-push",
     "build": "webpack --config webpack.prod.js",
-    "start": "webpack-dev-server --hot --port 3000 --config webpack.dev.js",
-    "test:ci": "DETERMINISTIC=true start-server-and-test 8000"
+    "start": "webpack-dev-server --hot --port 3000 --config webpack.dev.js"
   },
   "author": "Sulhadin Öney <sulhadin@gmail.com>",
   "license": "MIT",
