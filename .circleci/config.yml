@@ -5,3 +5,7 @@ workflows:
   node-tests:
     jobs:
       - node/test
+      - restore_cache:
+          name: Restore Yarn Package Cache
+          keys:
+            - yarn-packages-{{ checksum "yarn.lock" }}
