@@ -20,6 +20,5 @@ install:
   - yarn --frozen-lockfile
 
 script:
-  - yarn lint
-  - yarn build
+  - yarn run build
   - yarn test:ci
