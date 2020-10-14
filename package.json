@@ -4,7 +4,7 @@
   "description": "The first pokemon generation",
   "main": "index.js",
   "scripts": {
-    "test": "npm run test",
+    "test": "jest",
     "deploy": "npm run build && npm run git-commit && npm run git-push",
     "build": "webpack --config webpack.prod.js",
     "start": "webpack-dev-server --hot --port 3000 --config webpack.dev.js"
