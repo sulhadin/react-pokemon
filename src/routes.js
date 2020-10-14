@@ -4,6 +4,11 @@ import { Pokemon, PokemonDetail } from './views/pokemon';
 
 const routes = [
   {
+    path: RouteEnum.DEFAULT,
+    key: 'DEFAULT_ROUTE',
+    component: Pokemon,
+    exact: true,
+  }, {
     path: RouteEnum.POKEMON,
     key: RouteEnum.POKEMON,
     component: Pokemon,
