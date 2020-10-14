@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/sulhadin/react-pokemon.svg?branch=main)](https://travis-ci.org/sulhadin/react-pokemon)
+[![CircleCI](https://circleci.com/gh/sulhadin/react-pokemon.svg?style=svg)](https://circleci.com/gh/sulhadin/react-pokemon)
 
 # React Pokemon
 
