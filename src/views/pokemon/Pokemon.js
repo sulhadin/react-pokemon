@@ -10,13 +10,10 @@ import { filterByName } from './helpers';
 const limitParam = { offset: 0, limit: 1050 };
 
 const Pokemon = () => {
-  const [loading, setLoading] = useState(true);
-  const [data, setData] = useState({
-    results: [],
-  });
-
   const [list, setList] = useState([]);
   const [found, setFound] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [data, setData] = useState({ results: [] });
 
   const fetchPokemon = useCallback(() => {
     setLoading(true);

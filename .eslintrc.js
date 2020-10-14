@@ -1,10 +1,6 @@
 module.exports = {
   extends: [
     "airbnb",
-    "plugin:flowtype/recommended"
-  ],
-  plugins: [
-    "flowtype"
   ],
   rules: {
     "import/prefer-default-export": [0,{}],
@@ -25,44 +21,6 @@ module.exports = {
         "message": "Unexpected property on console object was called"
       }
     ],
-    "react/sort-comp": [
-      0,
-      {
-        "order": [
-          "lifecycle",
-          "render"
-        ],
-        "groups": {
-          "lifecycle": [
-            "displayName",
-            "propTypes",
-            "contextTypes",
-            "childContextTypes",
-            "mixins",
-            "statics",
-            "defaultProps",
-            "constructor",
-            "getDefaultProps",
-            "state",
-            "getInitialState",
-            "getChildContext",
-            "getDerivedStateFromProps",
-            "componentWillMount",
-            "UNSAFE_componentWillMount",
-            "componentDidMount",
-            "componentWillReceiveProps",
-            "UNSAFE_componentWillReceiveProps",
-            "shouldComponentUpdate",
-            "componentWillUpdate",
-            "UNSAFE_componentWillUpdate",
-            "getSnapshotBeforeUpdate",
-            "componentDidUpdate",
-            "componentDidCatch",
-            "componentWillUnmount"
-          ]
-        }
-      }
-    ]
   },
   "settings": {
     "import/resolver": {
